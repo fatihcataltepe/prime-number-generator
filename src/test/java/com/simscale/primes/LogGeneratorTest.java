@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-public class StraightGeneratorTest {
-    StraightGenerator generator = new StraightGenerator();
-
+public class LogGeneratorTest {
+    LogGenerator generator = new LogGenerator();
 
     @Test
     public void generate() throws Exception {
@@ -51,6 +50,5 @@ public class StraightGeneratorTest {
 
         assertEquals(expected, actual);
     }
-
 
 }
