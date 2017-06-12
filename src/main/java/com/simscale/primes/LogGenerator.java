@@ -5,6 +5,8 @@ import java.util.ArrayList;
 /**
  * Log prime number generator
  * Runs in O(N√N) time complexity
+ * <p>
+ * For more information of sqrt search see `https://codereview.stackexchange.com/questions/10823/yet-another-prime-number-generator`
  */
 public class LogGenerator implements PrimeNumberGenerator {
 
