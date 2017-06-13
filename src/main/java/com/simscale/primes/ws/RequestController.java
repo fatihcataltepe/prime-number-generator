@@ -22,9 +22,9 @@ public class RequestController {
     List<Integer> getPrimesByStraight(@RequestBody Request r) {
         long timeBefore = System.currentTimeMillis();
         ArrayList<Integer> primes = new StraightGenerator().generate(r.getStart(), r.getEnd());
-        long timeAfter= System.currentTimeMillis();
+        long timeAfter = System.currentTimeMillis();
 
-        jdbcTemplate.update("INSERT INTO requests(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
+        jdbcTemplate.update("INSERT INTO primes(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
                 new Object[]{timeBefore, r.getStart(), r.getEnd(), timeAfter - timeBefore, "straight", primes.size()});
 
         return primes;
@@ -35,9 +35,9 @@ public class RequestController {
     List<Integer> getPrimesByLog(@RequestBody Request r) {
         long timeBefore = System.currentTimeMillis();
         ArrayList<Integer> primes = new LogGenerator().generate(r.getStart(), r.getEnd());
-        long timeAfter= System.currentTimeMillis();
+        long timeAfter = System.currentTimeMillis();
 
-        jdbcTemplate.update("INSERT INTO requests(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
+        jdbcTemplate.update("INSERT INTO primes(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
                 new Object[]{timeBefore, r.getStart(), r.getEnd(), timeAfter - timeBefore, "log", primes.size()});
 
         return primes;
@@ -48,9 +48,9 @@ public class RequestController {
     List<Integer> getPrimesBySieve(@RequestBody Request r) {
         long timeBefore = System.currentTimeMillis();
         ArrayList<Integer> primes = new SieveGenerator().generate(r.getStart(), r.getEnd());
-        long timeAfter= System.currentTimeMillis();
+        long timeAfter = System.currentTimeMillis();
 
-        jdbcTemplate.update("INSERT INTO requests(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
+        jdbcTemplate.update("INSERT INTO primes(timestamp, start,end, time_elapsed, algorithm_type, num_of_primes) VALUES(?,?,?,?,?,?)",
                 new Object[]{timeBefore, r.getStart(), r.getEnd(), timeAfter - timeBefore, "sieve", primes.size()});
 
         return primes;
