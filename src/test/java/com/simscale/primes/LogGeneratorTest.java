@@ -1,5 +1,6 @@
 package com.simscale.primes;
 
+import com.simscale.primes.algorithm.LogGenerator;
 import org.junit.Test;
 
 import java.util.ArrayList;

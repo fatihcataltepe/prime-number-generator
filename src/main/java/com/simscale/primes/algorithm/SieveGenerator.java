@@ -1,4 +1,4 @@
-package com.simscale.primes;
+package com.simscale.primes.algorithm;
 
 import java.util.ArrayList;
 
