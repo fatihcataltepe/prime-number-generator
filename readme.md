@@ -17,7 +17,6 @@ All of them generates the same output for a given range.
 git clone git@github.com:fatihcataltepe/prime-number-generator.git
 ```
 
-
 ## Create Database
 
 Execute the following script in a `msyql` database
@@ -48,14 +47,17 @@ CREATE TABLE simscale.primes
 # go to project's directory
 cd prime-number-generator
 
-# build using gradle
-gradle build
+# build web application
+gradle build -DmainClass=com.simscale.primes.ws.Application -DjarName=prime-number-generator-ws
+
+# build command line application
+gradle build -DmainClass=com.simscale.primes.terminal.Main -DjarName=prime-number-generator-terminal
 ```
 ## Configuration
 
 ```bash
 #Go to `build/libs` directory by
-cp build/libs
+cd build/libs
 
 #Create application.properties file
 touch application.properties
@@ -77,6 +79,13 @@ spring.datasource.hikari.maximum-pool-size=5
 
 ## Run as Command Line Application
 
+```bash
+cd build/libs
+java -jar prime-number-generator-terminal-1.0-SNAPSHOT.jar algorithm_type lower-bound upper-bound
+```
+
+- algorithm_type can be `straight`, `log` and `sieve`
+- lower-bound and upper-bound can be integers
 
 
 
@@ -85,9 +94,13 @@ spring.datasource.hikari.maximum-pool-size=5
 Execute the following command:
 
 ```bash
-java -cp . -jar prime-number-generator-1.0-SNAPSHOT.jar  
-```
+cd build/libs
 
+#make sure that `application.properties` is in the directory, otherwise see Configuration step again.
+java -cp . -jar prime-number-generator-ws-1.0-SNAPSHOT.jar 
+
+#Now application is running on 8080 port
+```
 
 ## Web Services
 
